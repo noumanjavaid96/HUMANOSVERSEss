@@ -2,7 +2,7 @@
 import React from 'react';
 
 const CheckIcon = () => (
-    <svg className="h-6 w-6 text-cyan-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="h-6 w-6 text-cyan-600 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
     </svg>
 );
@@ -15,36 +15,35 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-slate-900 py-24 sm:py-32">
-      <div className="absolute inset-0 bg-grid-slate-700/10 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
+    <div className="relative overflow-hidden bg-gray-50 py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-base font-semibold leading-7 text-cyan-400">Core Philosophy & USP</p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+          <p className="text-lg font-semibold leading-7 text-cyan-600">Core Philosophy & USP</p>
+          <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             A Self-Contained Digital Ecosystem
           </h1>
-          <p className="mt-6 text-lg leading-8 text-slate-300">
+          <p className="mt-6 text-xl leading-8 text-gray-600">
             The fundamental principle of the HUMANOSVERSE™ project is to create a 100% self-contained and proprietary digital ecosystem, providing unparalleled security, privacy, and ethical governance.
           </p>
         </div>
 
-        <div className="mt-20 max-w-5xl mx-auto bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700">
+        <div className="mt-20 max-w-5xl mx-auto bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200">
             <div className="flex items-center gap-4">
                 <CheckIcon/>
-                <h2 className="text-2xl font-bold text-white">Unique Selling Proposition</h2>
+                <h2 className="text-2xl font-bold text-gray-900"> The Problem: Our View</h2>
             </div>
-            <p className="mt-4 text-slate-400">
+            <p className="mt-4 text-gray-600">
               The USP of HUMANOSVERSE™ lies in its proprietary, deeply integrated technologies that cannot be replicated with off-the-shelf solutions.
             </p>
             <div className="mt-8 space-y-6">
               {uspItems.map((item, index) => (
-                <div key={index} className="p-6 bg-slate-900/60 rounded-lg border border-slate-700">
-                    <h3 className="font-semibold text-white text-lg">{item.title}</h3>
-                    <p className="mt-2 text-slate-400">{item.description}</p>
+                <div key={index} className="p-6 bg-gray-50/60 rounded-lg border border-gray-200">
+                    <h3 className="font-semibold text-gray-900 text-lg">{item.title}</h3>
+                    <p className="mt-2 text-gray-600">{item.description}</p>
                 </div>
               ))}
             </div>
-             <p className="mt-8 text-center text-slate-400 italic">
+             <p className="mt-8 text-center text-gray-500 italic">
                 This self-contained architecture is what makes HUMANOSVERSE™ a truly next-generation digital platform.
             </p>
         </div>

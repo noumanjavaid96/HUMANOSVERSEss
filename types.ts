@@ -1,3 +1,4 @@
+
 // Fix: Correctly type JSX elements by importing ReactNode from react to resolve "Cannot find namespace 'JSX'" error.
 import type { ReactNode } from 'react';
 
@@ -22,7 +23,7 @@ export interface Risk {
 export interface Sprint {
   sprint: string;
   duration: string;
-  focus: string;
+  title: string;
   goals: string[];
   deliverables: string[];
 }

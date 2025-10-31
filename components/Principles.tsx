@@ -52,20 +52,20 @@ const principlesData: Principle[] = [
 ];
 
 const PrincipleCard: React.FC<{ principle: Principle }> = ({ principle }) => (
-  <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-cyan-400/50 transition-colors duration-300">
+  <div className="bg-white p-6 rounded-lg border border-gray-200 hover:border-cyan-500/50 transition-colors duration-300">
     <div className="flex items-center gap-4">
-      <div className="flex-shrink-0 bg-slate-700 p-3 rounded-md text-cyan-400">
+      <div className="flex-shrink-0 bg-gray-100 p-3 rounded-md text-cyan-600">
         {principle.icon}
       </div>
-      <h3 className="text-xl font-bold text-white">{principle.title}</h3>
+      <h3 className="text-xl font-bold text-gray-900">{principle.title}</h3>
     </div>
-    <p className="mt-4 text-slate-400">{principle.description}</p>
+    <p className="mt-4 text-gray-600">{principle.description}</p>
   </div>
 );
 
 const Principles: React.FC = () => {
   return (
-    <Section title="Guiding Principles" id="principles" className="bg-slate-900/70">
+    <Section title="Guiding Principles" id="principles" className="bg-gray-100">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {principlesData.slice(0, 3).map((p, i) => (
           <PrincipleCard key={i} principle={p} />

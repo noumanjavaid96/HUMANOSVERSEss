@@ -3,73 +3,135 @@ import React from 'react';
 import Section from './Section';
 import type { Sprint } from '../types';
 
-const mvpScope = [
-    "H-Social: Social feed, user profiles, and content creation",
-    "H-Messenger: Real-time chat and media sharing",
-    "H-Vault (Tresor™): Secure file storage and encryption",
-    "ID–QR™ Authentication: Dynamic QR code-based authentication",
-    "HILARA™: AI-powered ethical validation",
-    "SENTINEL™: AI-powered security and threat detection",
+const timelineData: Sprint[] = [
+    {
+      sprint: 'Sprint 1',
+      duration: '2 Weeks',
+      title: 'Core Architecture & Foundation',
+      goals: [
+        'Define microservices architecture.',
+        'Set up CI/CD pipeline.',
+        'Establish database schema.',
+      ],
+      deliverables: [
+        'Technical architecture document.',
+        'Initial project scaffolding.',
+        'Authenticated API gateway.',
+      ],
+    },
+    {
+      sprint: 'Sprint 2-3',
+      duration: '4 Weeks',
+      title: 'Ethical AI Core (HILARA™) - Phase 1',
+      goals: [
+        'Develop core ethical validation algorithms.',
+        'Train initial AI models on test data.',
+        'Create AI model serving infrastructure.',
+      ],
+      deliverables: [
+        'HILARA™ v0.1 API endpoint.',
+        'Internal dashboard for AI monitoring.',
+        'Report on initial model accuracy.',
+      ],
+    },
+    {
+      sprint: 'Sprint 4-5',
+      duration: '4 Weeks',
+      title: 'Security Stack (ID-QR™ & H-Vault™)',
+      goals: [
+        'Implement dynamic QR code authentication.',
+        'Build end-to-end encrypted storage solution.',
+        'Integrate security modules with user service.',
+      ],
+      deliverables: [
+        'Functional ID-QR™ login flow.',
+        'H-Vault™ SDK for internal services.',
+        'Initial security audit report.',
+      ],
+    },
+    {
+      sprint: 'Sprint 6-8',
+      duration: '6 Weeks',
+      title: 'H-Social & H-Messenger (MVP)',
+      goals: [
+        'Develop core social features (posts, profiles, etc.).',
+        'Implement real-time messaging.',
+        'Integrate HILARA™ for content moderation.',
+      ],
+      deliverables: [
+        'Internal MVP of H-Social & H-Messenger.',
+        'Demonstration of real-time ethical validation.',
+        'User-facing UI components library.',
+      ],
+    },
 ];
 
-const timelineData: Sprint[] = [
-  { sprint: 'Sprint 1', duration: 'Weeks 1-2', focus: 'Foundation & Authentication', goals: ['Set up development environment and CI/CD pipeline', 'Design and implement core database schema', 'Develop ID–QR™ authentication system', 'Implement user registration and login flows'], deliverables: ['Secure and scalable infrastructure', 'Functional user authentication system', 'API documentation for authentication endpoints'] },
-  { sprint: 'Sprint 2', duration: 'Weeks 3-4', focus: 'H-Social & User Profiles', goals: ['Develop H-Social feed for creating and viewing posts', 'Implement user profiles (pictures, bios, connections)', 'Develop content creation and management functionalities'], deliverables: ['Functional social feed', 'Ability to create, edit, and delete user profiles', 'Ability to create, edit, and delete posts'] },
-  { sprint: 'Sprint 3', duration: 'Weeks 5-6', focus: 'H-Messenger & Real-time Communication', goals: ['Develop H-Messenger module for real-time chat', 'Implement media sharing (images and videos)', 'Integrate push notifications for new messages'], deliverables: ['Real-time chat application', 'Ability to send and receive text messages and media files', 'Push notifications for new messages'] },
-  { sprint: 'Sprint 4', duration: 'Weeks 7-8', focus: 'H-Vault & Secure Storage', goals: ['Develop H-Vault (Tresor™) for secure file storage', 'Implement AES-512 encryption for all files', 'Develop file upload, download, and management functionalities'], deliverables: ['Secure and encrypted file storage system', 'Ability to upload, download, and delete files', 'API documentation for H-Vault endpoints'] },
-  { sprint: 'Sprint 5', duration: 'Weeks 9-10', focus: 'HILARA™ & SENTINEL™ Integration', goals: ['Integrate HILARA™ AI engine for ethical validation', 'Integrate SENTINEL™ AI engine for security and threat detection', 'Develop AI-powered content moderation and user behavior analysis'], deliverables: ['AI-powered ethical validation system', 'AI-powered security and threat detection system', 'Content moderation system to flag and remove inappropriate content'] },
-  { sprint: 'Stabilization', duration: 'Week 11', focus: 'Testing & Deployment', goals: ['Conduct end-to-end testing of the platform', 'Fix any bugs or issues identified', 'Deploy the MVP to production environment'], deliverables: ['Stable and bug-free MVP', 'Live and accessible HUMANOSVERSE™ platform'] },
-];
+const CheckIcon = () => (
+    <svg className="w-6 h-6 text-cyan-600 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+    </svg>
+);
+
+const GoalIcon = () => (
+    <svg className="w-6 h-6 text-cyan-600 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+    </svg>
+);
 
 
 const Timeline: React.FC = () => {
   return (
-    <Section title="Project Timeline: MVP" id="timeline" className="bg-slate-900/70">
-      <div className="max-w-6xl mx-auto text-center">
-        <div className="bg-slate-800/50 p-8 rounded-lg border border-slate-700 max-w-3xl mx-auto mb-12">
-            <h3 className="text-xl font-bold text-white mb-4">🎯 Core MVP Functionalities</h3>
-            <ul className="text-left text-slate-300 space-y-2">
-                {mvpScope.map((item, index) => (
-                    <li key={index} className="flex items-center">
-                        <svg className="w-4 h-4 text-cyan-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-                        {item}
-                    </li>
-                ))}
-            </ul>
+    <Section title="High-Level Timelines & Deliverables" id="timeline" className="bg-gray-100">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+            <p className="text-xl text-gray-700 max-w-4xl mx-auto">
+                The project is structured into two-week sprints, allowing for an agile and iterative development process. This timeline provides a <strong>very high-level overview</strong> of the key phases and major deliverables.
+            </p>
         </div>
 
-        <p className="text-slate-400 mb-8">The MVP development will be divided into five two-week sprints, followed by a one-week stabilization and deployment phase.</p>
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-4 top-2 w-1 h-full bg-gray-200 rounded"></div>
 
-        <div className="space-y-8">
-            {timelineData.map((sprint) => (
-                <div key={sprint.sprint} className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 text-left md:flex md:items-start md:gap-6 hover:border-cyan-400/50 transition-colors duration-300">
-                    <div className="md:w-1/4 mb-4 md:mb-0">
-                        <h4 className="text-xl font-bold text-cyan-400">{sprint.sprint}</h4>
-                        <p className="text-sm text-slate-400">{sprint.duration}</p>
-                        <p className="text-md font-semibold text-white mt-2">{sprint.focus}</p>
-                    </div>
-                    <div className="md:w-3/4 grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h5 className="font-semibold text-slate-300 mb-2">Key Goals</h5>
-                            <ul className="list-disc list-inside text-sm text-slate-400 space-y-1">
-                                {sprint.goals.map((goal, i) => <li key={i}>{goal}</li>)}
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 className="font-semibold text-slate-300 mb-2">Deliverables</h5>
-                            <ul className="list-disc list-inside text-sm text-slate-400 space-y-1">
-                                {sprint.deliverables.map((d, i) => <li key={i}>{d}</li>)}
-                            </ul>
-                        </div>
-                    </div>
+          {timelineData.map((item, index) => (
+            <div key={index} className="relative pl-12 mb-16">
+              {/* Dot */}
+              <div className="absolute left-4 top-2 -ml-2.5 w-6 h-6 rounded-full bg-cyan-500 border-4 border-white"></div>
+              
+              <div className="mb-4">
+                  <span className="bg-cyan-100 text-cyan-800 text-lg font-semibold mr-3 px-4 py-1.5 rounded-full">{item.sprint}</span>
+                  <span className="text-lg text-gray-500 font-medium">{item.duration}</span>
+              </div>
+
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">{item.title}</h3>
+
+              <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 bg-white p-6 rounded-lg border border-gray-200">
+                <div>
+                  <h4 className="text-2xl font-semibold text-gray-800 mb-4">Goals:</h4>
+                  <ul className="space-y-3">
+                    {item.goals.map((goal, i) => (
+                      <li key={i} className="flex items-center text-lg text-gray-700">
+                        <GoalIcon />
+                        <span>{goal}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-            ))}
+                <div>
+                  <h4 className="text-2xl font-semibold text-gray-800 mb-4">Deliverables:</h4>
+                  <ul className="space-y-3">
+                    {item.deliverables.map((d, i) => (
+                      <li key={i} className="flex items-center text-lg text-gray-700">
+                        <CheckIcon />
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        
-         <p className="mt-12 text-center text-slate-500 italic text-sm max-w-3xl mx-auto">
-            📝 Note: This timeline is a high-level estimate. HILARA™ provides AI-driven analysis during each sprint to forecast potential ethical implications of new features, ensuring our development stays true to our principles.
-        </p>
-
       </div>
     </Section>
   );

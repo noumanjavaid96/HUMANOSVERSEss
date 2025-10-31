@@ -17,15 +17,15 @@ const teamData: TeamMember[] = [
 ];
 
 const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => (
-    <div className={`p-6 rounded-lg border text-left transition-all duration-300 ${member.role.includes('AI') ? 'bg-cyan-500/10 border-cyan-400/50 shadow-lg shadow-cyan-500/10' : 'bg-slate-800/50 border-slate-700 hover:border-cyan-400/50'}`}>
-        <h4 className="font-bold text-white text-lg">{member.role}</h4>
-        <p className="mt-2 text-slate-400 text-sm">{member.responsibility}</p>
+    <div className={`p-6 rounded-lg border text-left transition-all duration-300 ${member.role.includes('AI') ? 'bg-cyan-50 border-cyan-300/50 shadow-lg shadow-cyan-500/10' : 'bg-white border-gray-200 hover:border-cyan-500/50'}`}>
+        <h4 className="font-bold text-gray-900 text-lg">{member.role}</h4>
+        <p className="mt-2 text-gray-600 text-sm">{member.responsibility}</p>
     </div>
 );
 
 const Team: React.FC = () => {
   return (
-    <Section title="Suggested Team Structure" id="team" className="bg-slate-900/70">
+    <Section title="Suggested Team Structure" id="team" className="bg-gray-100">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {teamData.map((member, index) => (

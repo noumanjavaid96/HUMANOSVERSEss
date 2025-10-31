@@ -13,7 +13,7 @@ const Section: React.FC<SectionProps> = ({ title, children, id, className = '' }
     <section id={id} className={`py-16 sm:py-24 ${className}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
             {title}
           </h2>
         </div>
